@@ -35,7 +35,7 @@ public class UI {
     }
 
     public static void benvenutoD() {
-        System.out.println("Benvenut* nella modalità decriptazione, dovresti possedere un file dal nome 'outputMittente.txt' pieno di numeri, ovvero criptato, e quattro chiavi numeriche etichettate r, s, p e q. Ti verrà chiesto di inserire le chiavi, e successivamente verrà stampato il messaggio decriptato nel terminale. In caso di errori di decriptazione, la colpa è da attribuirsi alle chiavi in quanto il programma è corretto per dimostrazione.");
+        System.out.println("Benvenut* nella modalità decriptazione, dovresti possedere un file dal nome 'outputMittente.txt' (da copiare in textFiles) pieno di numeri, ovvero criptato, e quattro chiavi numeriche etichettate r, s, p e q. Ti verrà chiesto di inserire le chiavi, e successivamente verrà stampato il messaggio decriptato nel terminale. In caso di errori di decriptazione, la colpa è da attribuirsi alle chiavi in quanto il programma è corretto per dimostrazione.");
         System.out.println();
     }
 
@@ -71,7 +71,7 @@ public class UI {
     }
 
     public static void benvenutoC(String user) {
-        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella del progetto, dove scriverai il tuo messaggio usando i simboli contenuti in 'index.txt', e di un file vuoto di nome 'output" + user + ".txt', che verrà riempito col messaggio criptato.");
+        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella textFiles, dove scriverai il tuo messaggio usando i simboli contenuti in 'index.txt', e di un file vuoto di nome 'output" + user + ".txt' nella stessa cartella, che verrà riempito col messaggio criptato.");
         System.out.println();
         System.out.println("Ti verrà chiesto di scegliere due numeri primi, p e q, entrambi idealmente minori di 46341, in modo che il loro prodotto non superi il limite degli int di Java, e tali che una volta calcolato phi = (p-1)*(q-1), questo sia strettamente maggiore di 106.");
         System.out.println("Poi dovrai scegliere la chiave s, con delle dovute accortezze:");
