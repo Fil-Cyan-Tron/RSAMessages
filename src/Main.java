@@ -17,7 +17,7 @@ public class Main {
                 String sender = "";
                 sender = UI.getSender(sc);
                 chiavi = UI.inserisciChiaviD(sc);
-                String fileName = "output" + sender + ".txt";
+                String fileName = "textFiles/output" + sender + ".txt";
                 UI.stampaMessaggio(fileName, chiavi);
             }
             if (mode.equals("C")) {

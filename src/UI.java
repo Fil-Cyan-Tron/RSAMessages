@@ -95,8 +95,8 @@ public class UI {
 
     public static void criptazione(String user, int[] chiavi) throws IOException {
         System.out.println("Criptazione del file in corso...");
-        String inputName = "input" + user + ".txt";
-        String outputName = "output" + user + ".txt";
+        String inputName = "textFiles/input" + user + ".txt";
+        String outputName = "textFiles/output" + user + ".txt";
         fileReading.criptaFile(inputName, outputName, "index.txt", chiavi);
         System.out.println("Criptazione completata! Decriptazione e stampa di controllo");
         System.out.println();
