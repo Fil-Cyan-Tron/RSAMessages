@@ -2,10 +2,10 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-!**/inputAnna.txt
-!**/outputAnna.txt
-!**/inputFilippo.txt
-!**/outputFilippo.txt
+!**/textFiles/.inputAnna.txt
+!**/textFiles/.outputAnna.txt
+!**/textFiles/.inputFilippo.txt
+!**/textFiles/.outputFilippo.txt
 
 ### Eclipse ###
 .apt_generated
