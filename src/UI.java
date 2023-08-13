@@ -64,14 +64,14 @@ public class UI {
         System.out.println("Stampa del messaggio decriptato con la chiave [" + chiavi[0] + ", " + chiavi[1] + ", " + chiavi[2] + ", " + chiavi[3] + "].");
         System.out.println("----- Inizio messaggio! -----");
         System.out.println();
-        fileReading.decriptaFile(fileName, "index.txt", chiavi);
+        fileReading.decriptaFile(fileName, "textFiles/index.txt", chiavi);
         System.out.println();
         System.out.println("----- Fine messaggio! -----");
         System.out.println();
     }
 
     public static void benvenutoC(String user) {
-        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella textFiles, dove scriverai il tuo messaggio usando i simboli contenuti in 'index.txt', e di un file vuoto di nome 'output" + user + ".txt' nella stessa cartella, che verrà riempito col messaggio criptato.");
+        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella textFiles, dove scriverai il tuo messaggio usando i simboli contenuti in 'textFiles/index.txt', e di un file vuoto di nome 'output" + user + ".txt' nella stessa cartella, che verrà riempito col messaggio criptato.");
         System.out.println();
         System.out.println("Ti verrà chiesto di scegliere due numeri primi, p e q, entrambi idealmente minori di 46341, in modo che il loro prodotto non superi il limite degli int di Java, e tali che una volta calcolato phi = (p-1)*(q-1), questo sia strettamente maggiore di 106.");
         System.out.println("Poi dovrai scegliere la chiave s, con delle dovute accortezze:");
@@ -97,7 +97,7 @@ public class UI {
         System.out.println("Criptazione del file in corso...");
         String inputName = "textFiles/input" + user + ".txt";
         String outputName = "textFiles/output" + user + ".txt";
-        fileReading.criptaFile(inputName, outputName, "index.txt", chiavi);
+        fileReading.criptaFile(inputName, outputName, "textFiles/index.txt", chiavi);
         System.out.println("Criptazione completata! Decriptazione e stampa di controllo");
         System.out.println();
         stampaMessaggio(outputName,chiavi);
