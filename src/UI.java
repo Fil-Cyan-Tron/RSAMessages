@@ -8,7 +8,7 @@ public class UI {
         System.out.println();
     }
 
-    public static String chiediInput(Scanner sc) throws IOException{
+    public static String chiediInput(Scanner sc) {
         String prova = "";
         prova = sc.nextLine();
         return prova;
@@ -79,12 +79,33 @@ public class UI {
     }
 
     public static void benvenutoC(String user) {
-        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella textFiles, dove scriverai il tuo messaggio usando i simboli contenuti in 'textFiles/index.txt', e di un file vuoto di nome 'output" + user + ".txt' nella stessa cartella, che verrà riempito col messaggio criptato.");
+        System.out.println("Benvenut* nella modalità criptazione. Questa modalità richiede la presenza di un file di nome 'input" + user + ".txt' nella cartella textFiles, dove scriverai il tuo messaggio usando i simboli contenuti in 'textFiles/index.txt', e di un file vuoto di nome 'output" + user + ".txt' nella stessa cartella, che verrà riempito col messaggio criptato. Se non li hai ancora non preoccuparti, ti verrà data la possibilità di crearli.");
         System.out.println();
         System.out.println("Ti verrà chiesto di scegliere due numeri primi, p e q, entrambi idealmente minori di 46341, in modo che il loro prodotto non superi il limite degli int di Java, e tali che una volta calcolato phi = (p-1)*(q-1), questo sia strettamente maggiore di 106.");
         System.out.println("Poi dovrai scegliere la chiave s, con delle dovute accortezze:");
         System.out.println("Innanzitutto s dovrà essere strettamente minore di phi e non avere fattori in comune con esso, puoi controllare la fattorizzazione di phi su https://www.wolframalpha.com/ per essere più comod*.");
         System.out.println("La chiave r verrà calcolata per te dal programma.");
+        System.out.println();
+    }
+
+    public static void creaFileC(String tipo, String user) throws IOException {
+        String fileName = tipo + user + ".txt";
+        fileReading.creaFile(fileName);
+    }
+
+    public static void bisognoFileC(Scanner sc, String user) throws IOException {
+        System.out.println("Hai bisogno di creare il file di input, di output o entrambi? Digita 'in' per creare l'input, digita 'out' per creare l'output, digita 'both' per creare entrambi, altrimenti digita qualsiasi altro carattere per procedere. Nel caso in cui dovesse essere creato il file 'input" + user + ".txt', il programma terminerà per darti la possibilità di scrivere il tuo messaggio.");
+        String prova = chiediInput(sc);
+        boolean input = prova.equals("in");
+        boolean output = prova.equals("out");
+        boolean both = prova.equals("both");
+        if (output || both) {
+            creaFileC("output", user);
+        }
+        if (input || both) {
+            creaFileC("input", user);
+            termineEsecuzione();
+        }
         System.out.println();
     }
 
@@ -112,12 +133,12 @@ public class UI {
         fileReading.criptaFile(inputName, outputName, "textFiles/index.txt", chiavi);
         System.out.println("Criptazione completata! Digitare 'S' per ottenere una stampa di controllo, altrimenti digitare qualunque altro input per terminare l'esecuzione.");
         String prova = chiediInput(sc);
-        if(prova.equals("S")){
-            stampaMessaggio(outputName,chiavi);
+        if (prova.equals("S")) {
+            stampaMessaggio(outputName, chiavi);
         }
     }
 
-    public static boolean altraRun(Scanner sc) throws IOException{
+    public static boolean altraRun(Scanner sc) throws IOException {
         System.out.println("Se si desidera ripetere l'esecuzione del programma, anche in altre modalità, digitare 'R', altrimenti digitare qualsiasi altro input per terminare l'esecuzione");
         String repeat = chiediInput(sc);
         return repeat.equals("R");
@@ -127,5 +148,6 @@ public class UI {
         System.out.println("------------------TERMINE ESECUZIONE------------------");
         System.out.println("Grazie di aver usato il mio programma, buona giornata.");
         System.out.println("In caso di problemi con il programma, visitare https://fil-cyan-tron.github.io/");
+        System.exit(0);
     }
 }

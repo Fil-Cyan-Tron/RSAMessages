@@ -22,13 +22,12 @@ public class Main {
             }
             if (mode.equals("C")) {
                 UI.benvenutoC(user);
+                UI.bisognoFileC(sc, user);
                 chiavi = UI.inserisciChiaviC(sc);
                 UI.criptazione(sc, user, chiavi);
             }
-            if(UI.altraRun(sc)){
+            if (UI.altraRun(sc)) {
                 main(args);
-            } else {
-                UI.termineEsecuzione();
             }
         } catch (IOException e) {
             System.out.println("Errore: " + e.getMessage());
@@ -37,5 +36,6 @@ public class Main {
                 sc.close();
             }
         }
+        UI.termineEsecuzione();
     }
 }

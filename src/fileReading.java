@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,6 +25,17 @@ public class fileReading {
         if (fw != null) {
             fw.close();
         }
+    }
+
+    public static void creaFile(String fileName) throws IOException {
+        String inputName = "textFiles/" + fileName;
+        File test = new File(inputName);
+        if (test.createNewFile()) {
+            System.out.println("Il file " + fileName + " è stato creato nella cartella textFiles.");
+        } else {
+            System.out.println("Il file " + fileName + " esiste già nella cartella textFiles.");
+        }
+        System.out.println("Puoi procedere");
     }
 
     public static ArrayList<String> getIndex(String fileName) throws IOException {
@@ -71,7 +83,7 @@ public class fileReading {
             while (sc.hasNextLine()) {
                 String linea = sc.nextLine();
                 int[] numeri = stringaIndicizzata(linea, index);
-                if(linea.equals("")){
+                if (linea.equals("")) {
                     fw.write("0");
                 } else {
                     for (int i = 0; i < numeri.length; i++) {
