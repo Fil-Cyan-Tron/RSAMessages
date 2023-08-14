@@ -23,9 +23,13 @@ public class Main {
             if (mode.equals("C")) {
                 UI.benvenutoC(user);
                 chiavi = UI.inserisciChiaviC(sc);
-                UI.criptazione(user, chiavi);
+                UI.criptazione(sc, user, chiavi);
             }
-            UI.termineEsecuzione();
+            if(UI.altraRun(sc)){
+                main(args);
+            } else {
+                UI.termineEsecuzione();
+            }
         } catch (IOException e) {
             System.out.println("Errore: " + e.getMessage());
         } finally {

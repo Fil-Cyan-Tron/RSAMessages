@@ -8,22 +8,26 @@ public class UI {
         System.out.println();
     }
 
+    public static String chiediInput(Scanner sc) throws IOException{
+        String prova = "";
+        prova = sc.nextLine();
+        return prova;
+    }
+
     public static String benvenutoEGetUser(Scanner sc) throws IOException {
-        String user = "";
         System.out.println("Benvenut*!");
         System.out.println("Questo programma è stato creato per la criptazione e decriptazione di messaggi");
         System.out.println("Inserisci il tuo nome, costituito solo da caratteri alfanumerici e privo di spazi");
-        user = sc.nextLine();
+        String user = sc.nextLine();
         System.out.println("Grazie, " + user + ", ti auguro una buona esperienza.");
         System.out.println();
         return user;
     }
 
     public static String getMode(Scanner sc) throws IOException {
-        String mode = "";
         System.out.println("Questo programma offre due modalità: la modalità criptazione, indicata con C, e la modalità decriptazione, indicata con D.");
         System.out.println("Digita la lettera associata alla modalità desiderata:");
-        mode = sc.nextLine();
+        String mode = chiediInput(sc);
         boolean crit = mode.equals("C");
         boolean decrit = mode.equals("D");
         while (!(crit || decrit)) {
@@ -40,23 +44,27 @@ public class UI {
     }
 
     public static String getSender(Scanner sc) throws IOException {
-        String sender = "";
         System.out.println("Inserisci il nome del mittente");
-        sender = sc.nextLine();
+        String sender = chiediInput(sc);
         System.out.println();
         return sender;
     }
 
     public static int[] inserisciChiaviD(Scanner sc) throws IOException {
         int[] chiavi = new int[4];
+        String linea;
         System.out.println("Inserisci la chiave r");
-        chiavi[0] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[0] = Integer.parseInt(linea);
         System.out.println("Inserisci la chiave s");
-        chiavi[1] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[1] = Integer.parseInt(linea);
         System.out.println("Inserisci la chiave p");
-        chiavi[2] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[2] = Integer.parseInt(linea);
         System.out.println("Inserisci la chiave q");
-        chiavi[3] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[3] = Integer.parseInt(linea);
         return chiavi;
     }
 
@@ -82,28 +90,40 @@ public class UI {
 
     public static int[] inserisciChiaviC(Scanner sc) throws IOException {
         int[] chiavi = new int[4];
+        String linea;
         System.out.println("Inserisci la chiave s");
-        chiavi[1] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[1] = Integer.parseInt(linea);
         System.out.println("Inserisci il primo p");
-        chiavi[2] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[2] = Integer.parseInt(linea);
         System.out.println("Inserisci il primo q");
-        chiavi[3] = sc.nextInt();
+        linea = sc.nextLine();
+        chiavi[3] = Integer.parseInt(linea);
         chiavi[0] = RSA.EuclideEsteso(chiavi[1], chiavi[2], chiavi[3]);
         System.out.println("Il valore calcolato della chiave r è " + chiavi[0] + ".");
         return chiavi;
     }
 
-    public static void criptazione(String user, int[] chiavi) throws IOException {
+    public static void criptazione(Scanner sc, String user, int[] chiavi) throws IOException {
         System.out.println("Criptazione del file in corso...");
         String inputName = "textFiles/input" + user + ".txt";
         String outputName = "textFiles/output" + user + ".txt";
         fileReading.criptaFile(inputName, outputName, "textFiles/index.txt", chiavi);
-        System.out.println("Criptazione completata! Decriptazione e stampa di controllo");
-        System.out.println();
-        stampaMessaggio(outputName,chiavi);
+        System.out.println("Criptazione completata! Digitare 'S' per ottenere una stampa di controllo, altrimenti digitare qualunque altro input per terminare l'esecuzione.");
+        String prova = chiediInput(sc);
+        if(prova.equals("S")){
+            stampaMessaggio(outputName,chiavi);
+        }
     }
 
-    public static void termineEsecuzione(){
+    public static boolean altraRun(Scanner sc) throws IOException{
+        System.out.println("Se si desidera ripetere l'esecuzione del programma, anche in altre modalità, digitare 'R', altrimenti digitare qualsiasi altro input per terminare l'esecuzione");
+        String repeat = chiediInput(sc);
+        return repeat.equals("R");
+    }
+
+    public static void termineEsecuzione() {
         System.out.println("------------------TERMINE ESECUZIONE------------------");
         System.out.println("Grazie di aver usato il mio programma, buona giornata.");
         System.out.println("In caso di problemi con il programma, visitare https://fil-cyan-tron.github.io/");
