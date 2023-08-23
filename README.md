@@ -12,4 +12,6 @@ In questo momento Warlock è pensato per essere eseguito in una IDE (renderlo un
 
 ### Step 1: Scaricare l'ultima release
 
-![Cliccare l'ultima release come visto qui](Tutorial-TUTORIAL1.png)
+![Cliccare sull'ultima release come visto qui](Tutorial/TUTORIAL1.png?raw=true)
+
+![Scaricare la cartella compressa](Tutorial/TUTORIAL2.png?raw=true)
