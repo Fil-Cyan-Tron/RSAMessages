@@ -10,6 +10,10 @@ Perchè il nome Warlock? Perchè mi piaceva l'idea di avere una naming conventio
 
 In questo momento Warlock è pensato per essere eseguito in una IDE (renderlo un'applicazione eseguibile per ora è uno skill issue da parte mia), il seguente è un tutorial di come scaricarlo da qui ed eseguirlo con IntelliJ di JetBrains (community edition) per i pochi che si interessano di programmazione e non sono ancora abituati ad usare un'IDE.
 
+## Step 0: Scaricare IntelliJ dal sito di JetBrains
+
+Mi fido del fatto che siate in grado di farlo.
+
 ### Step 1: Scaricare l'ultima release
 
 Cliccare sull'ultima release come visto qui
@@ -22,6 +26,26 @@ Scaricare la cartella compressa (generalmente si decomprime più comunemente il 
 
 Estrarla nella cartella "IdeaProjects", già presente se avete usato ancora IntelliJ.
 
-### Aprire il progetto con IntelliJ
+### Step 2: Aprire il progetto con IntelliJ
 
-Aprire IntelliJ
+Aprire IntelliJ, chiudere qualsiasi progetto abbiate aperto, e nella finestra che vi si presenta premere il pulsante "Open".
+
+Se non avete mai aperto altri progetti, la finestra si presenta in questo modo
+
+![](Tutorial/TUTORIAL3.png?raw=true)
+
+Navigare fino alla cartella di Warlock e premere il pulsante "OK", dopo di che dire a IntelliJ di fidarsi (se vi fidate di me)
+
+Attendete che IntelliJ faccia tutto quello che deve fare (ignorate l'avviso "invalid VCS" se vi capita). 
+
+Poi aprite la cartella src nel menu a sinistra e il file Main.
+
+#### OPZIONALE: Scegliere la giusta versione del jdk
+
+Se non avete la versione 20.0.2 del jdk, IntelliJ potrebbe darvi un avviso in alto a destra, ma basta dirgli di scaricarla, non dovrebbe essere difficile, credo in voi
+
+### Step 3: Eseguire il file Main
+
+Dopo aver aperto il file Main, cliccate "Run" nel menu in alto a sinistra e "Run 'Main.java'".
+
+Il programma vi dirà cosa fare poi.
