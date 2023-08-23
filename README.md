@@ -12,6 +12,16 @@ In questo momento Warlock è pensato per essere eseguito in una IDE (renderlo un
 
 ### Step 1: Scaricare l'ultima release
 
-![Cliccare sull'ultima release come visto qui](Tutorial/TUTORIAL1.png?raw=true)
+Cliccare sull'ultima release come visto qui
 
-![Scaricare la cartella compressa](Tutorial/TUTORIAL2.png?raw=true)
+![](Tutorial/TUTORIAL1.png?raw=true)
+
+Scaricare la cartella compressa (generalmente si decomprime più comunemente il file .zip)
+
+![](Tutorial/TUTORIAL2.png?raw=true)
+
+Estrarla nella cartella "IdeaProjects", già presente se avete usato ancora IntelliJ.
+
+### Aprire il progetto con IntelliJ
+
+Aprire IntelliJ
