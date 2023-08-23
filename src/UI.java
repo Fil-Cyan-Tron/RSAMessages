@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class UI {
     public static void softWrapCheck() {
+        System.out.println();
+        System.out.println("-------------------------------------- WARLOCK --------------------------------------");
+        System.out.println();
         System.out.println("Per una maggiore godibilità di questo contenuto, ti consiglio di attivare il Soft-Wrap del terminale.");
         System.out.println("Ogni volta che questo programma chiederà l'inserimento di un input, successivamente alla sua digitazione dovrai premere il tasto invio.");
         System.out.println();
