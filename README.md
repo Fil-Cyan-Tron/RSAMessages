@@ -10,7 +10,7 @@ Perchè il nome Warlock? Perchè mi piaceva l'idea di avere una naming conventio
 
 In questo momento Warlock è pensato per essere eseguito in una IDE (renderlo un'applicazione eseguibile per ora è uno skill issue da parte mia), il seguente è un tutorial di come scaricarlo da qui ed eseguirlo con IntelliJ di JetBrains (community edition) per i pochi che si interessano di programmazione e non sono ancora abituati ad usare un'IDE.
 
-## Step 0: Scaricate IntelliJ dal sito di JetBrains
+### Step 0: Scaricate IntelliJ dal sito di JetBrains
 
 Mi fido del fatto che siate in grado di farlo.
 
