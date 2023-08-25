@@ -32,6 +32,19 @@ public class RSA {
         return fastExp(input, s, n);
     }
 
+    public static boolean checkCoprimi(int n, int s){
+        int r;
+        while(s != 1){
+            r = n%s;
+            n = s;
+            s = r;
+        }
+        if(n < 0){
+            n = -n;
+        }
+        return n == 1;
+    }
+
     public static int EuclideEsteso(int s, int p, int q){
         int old_r = 0;
         int r = 1;

@@ -132,6 +132,12 @@ public class UI {
         System.out.println("Inserisci il primo q");
         linea = sc.nextLine();
         chiavi[3] = Integer.parseInt(linea);
+        int phi = (chiavi[3]-1)*(chiavi[2]-1);
+        while(!RSA.checkCoprimi(phi,chiavi[1]) || chiavi[1]>=phi){
+            System.out.println("Il valore scelto di s non è accettabile, riprovare");
+            linea = sc.nextLine();
+            chiavi[1] = Integer.parseInt(linea);
+        }
         chiavi[0] = RSA.EuclideEsteso(chiavi[1], chiavi[2], chiavi[3]);
         System.out.println("Il valore calcolato della chiave r è " + chiavi[0] + ".");
         return chiavi;
