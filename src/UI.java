@@ -91,22 +91,30 @@ public class UI {
         System.out.println();
     }
 
-    public static void creaFileC(String tipo, String user) throws IOException {
-        String fileName = tipo + user + ".txt";
+    public static void creaFileC(String tipo, String user, String receiver) throws IOException {
+        String fileName = tipo + user + "To" + receiver + ".txt";
         fileReading.creaFile(fileName);
     }
 
-    public static void bisognoFileC(Scanner sc, String user) throws IOException {
+    public static String getReceiver(Scanner sc) throws IOException{
+        String receiver = "";
+        System.out.println("Per favore, inserire il nome del destinatario, come se fosse l'utente");
+        receiver = receiver + sc.nextLine();
+        System.out.println();
+        return receiver;
+    }
+
+    public static void bisognoFileC(Scanner sc, String user, String receiver) throws IOException {
         System.out.println("Hai bisogno di creare il file di input, di output o entrambi? Digita 'in' per creare l'input, digita 'out' per creare l'output, digita 'both' per creare entrambi, altrimenti digita qualsiasi altro carattere per procedere. Nel caso in cui dovesse essere creato il file 'input" + user + ".txt', il programma terminerà per darti la possibilità di scrivere il tuo messaggio.");
         String prova = chiediInput(sc);
         boolean input = prova.equals("in");
         boolean output = prova.equals("out");
         boolean both = prova.equals("both");
         if (output || both) {
-            creaFileC("output", user);
+            creaFileC("output", user, receiver);
         }
         if (input || both) {
-            creaFileC("input", user);
+            creaFileC("input", user, receiver);
             termineEsecuzione();
         }
         System.out.println();
@@ -129,10 +137,10 @@ public class UI {
         return chiavi;
     }
 
-    public static void criptazione(Scanner sc, String user, int[] chiavi) throws IOException {
+    public static void criptazione(Scanner sc, String user, String receiver, int[] chiavi) throws IOException {
         System.out.println("Criptazione del file in corso...");
-        String inputName = "textFiles/input" + user + ".txt";
-        String outputName = "textFiles/output" + user + ".txt";
+        String inputName = "textFiles/input" + user + "To" + receiver + ".txt";
+        String outputName = "textFiles/output" + user + "To" + receiver + ".txt";
         fileReading.criptaFile(inputName, outputName, "textFiles/index.txt", chiavi);
         System.out.println("Criptazione completata! Digitare 'S' per ottenere una stampa di controllo, altrimenti digitare qualunque altro input per terminare l'esecuzione.");
         String prova = chiediInput(sc);

@@ -17,14 +17,15 @@ public class Main {
                 String sender = "";
                 sender = UI.getSender(sc);
                 chiavi = UI.inserisciChiaviD(sc);
-                String fileName = "textFiles/output" + sender + ".txt";
+                String fileName = "textFiles/output" + sender + "To" + user + ".txt";
                 UI.stampaMessaggio(fileName, chiavi);
             }
             if (mode.equals("C")) {
                 UI.benvenutoC(user);
-                UI.bisognoFileC(sc, user);
+                String receiver = UI.getReceiver(sc);
+                UI.bisognoFileC(sc, user, receiver);
                 chiavi = UI.inserisciChiaviC(sc);
-                UI.criptazione(sc, user, chiavi);
+                UI.criptazione(sc, user, receiver, chiavi);
             }
             if (UI.altraRun(sc)) {
                 main(args);
