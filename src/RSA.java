@@ -34,7 +34,7 @@ public class RSA {
 
     public static boolean checkCoprimi(int n, int s){
         int r;
-        while(s != 1){
+        while(s > 0){
             r = n%s;
             n = s;
             s = r;
@@ -43,6 +43,23 @@ public class RSA {
             n = -n;
         }
         return n == 1;
+    }
+
+    public static boolean isPrime(int n){
+        boolean prime = true;
+        if(n == 0){
+            return false;
+        }
+        if(n < 0){
+            n = -n;
+        }
+        if(n == 1){
+            return false;
+        }
+        for(int i = 2 ; i < n && prime ; i++){
+            prime = checkCoprimi(n,i);
+        }
+        return prime;
     }
 
     public static int EuclideEsteso(int s, int p, int q){
@@ -72,12 +89,5 @@ public class RSA {
             r = r + phi;
         }
         return r;
-    }
-
-    public static void main(String[] args){
-        int s = 7;
-        int p = 19;
-        int q = 23;
-        System.out.println(EuclideEsteso(s,p,q));
     }
 }

@@ -86,7 +86,7 @@ public class UI {
         System.out.println();
         System.out.println("Ti verrà chiesto di scegliere due numeri primi, p e q, entrambi idealmente minori di 46341, in modo che il loro prodotto non superi il limite degli int di Java, e tali che una volta calcolato phi = (p-1)*(q-1), questo sia strettamente maggiore di 106.");
         System.out.println("Poi dovrai scegliere la chiave s, con delle dovute accortezze:");
-        System.out.println("Innanzitutto s dovrà essere strettamente minore di phi e non avere fattori in comune con esso, puoi controllare la fattorizzazione di phi su https://www.wolframalpha.com/ per essere più comod*.");
+        System.out.println("Innanzitutto s dovrà essere strettamente minore di phi e non avere fattori in comune con esso, puoi controllare la fattorizzazione di phi su https://www.wolframalpha.com/ per essere più comod* (in ogni caso il programma ti dirà se ci sono problemi).");
         System.out.println("La chiave r verrà calcolata per te dal programma.");
         System.out.println();
     }
@@ -98,14 +98,14 @@ public class UI {
 
     public static String getReceiver(Scanner sc) throws IOException{
         String receiver = "";
-        System.out.println("Per favore, inserire il nome del destinatario, come se fosse l'utente");
+        System.out.println("Per favore, inserisci il nome del destinatario, come se fosse l'utente");
         receiver = receiver + sc.nextLine();
         System.out.println();
         return receiver;
     }
 
     public static void bisognoFileC(Scanner sc, String user, String receiver) throws IOException {
-        System.out.println("Hai bisogno di creare il file di input, di output o entrambi? Digita 'in' per creare l'input, digita 'out' per creare l'output, digita 'both' per creare entrambi, altrimenti digita qualsiasi altro carattere per procedere. Nel caso in cui dovesse essere creato il file 'input" + user + ".txt', il programma terminerà per darti la possibilità di scrivere il tuo messaggio.");
+        System.out.println("Hai bisogno di creare il file di input, di output o entrambi? Digita 'in' per creare l'input, digita 'out' per creare l'output, digita 'both' per creare entrambi, altrimenti digita qualsiasi altro carattere per procedere. Nel caso in cui dovesse essere creato il file 'input" + user + "To" + receiver + ".txt', il programma terminerà per darti la possibilità di scrivere il tuo messaggio.");
         String prova = chiediInput(sc);
         boolean input = prova.equals("in");
         boolean output = prova.equals("out");
@@ -129,12 +129,61 @@ public class UI {
         System.out.println("Inserisci il primo p");
         linea = sc.nextLine();
         chiavi[2] = Integer.parseInt(linea);
+        while(!RSA.isPrime(chiavi[2])){
+            System.out.println(chiavi[2] + " non è primo, ritenta");
+            linea = sc.nextLine();
+            chiavi[2] = Integer.parseInt(linea);
+        }
+        while(chiavi[2] >= 46341){
+            System.out.println("Sia p che q dovrebbero essere strettamente minori di 46341, ritenta con un p diverso");
+            linea = sc.nextLine();
+            chiavi[2] = Integer.parseInt(linea);
+        }
         System.out.println("Inserisci il primo q");
         linea = sc.nextLine();
         chiavi[3] = Integer.parseInt(linea);
+        while(!RSA.isPrime(chiavi[3])){
+            System.out.println(chiavi[3] + " non è primo, ritenta");
+            linea = sc.nextLine();
+            chiavi[3] = Integer.parseInt(linea);
+        }
+        while(chiavi[3] >= 46341){
+            System.out.println("Sia p che q dovrebbero essere strettamente minori di 46341, ritenta con un q diverso");
+            linea = sc.nextLine();
+            chiavi[3] = Integer.parseInt(linea);
+        }
         int phi = (chiavi[3]-1)*(chiavi[2]-1);
+        while(phi < 106){
+            System.out.println("Il valore di phi, ovvero "+ phi + "è minore o uguale a 106, tenta con p e q diversi");
+            System.out.println("Inserisci il primo p");
+            linea = sc.nextLine();
+            chiavi[2] = Integer.parseInt(linea);
+            while(!RSA.isPrime(chiavi[2])){
+                System.out.println(chiavi[2] + " non è primo, ritenta");
+                linea = sc.nextLine();
+                chiavi[2] = Integer.parseInt(linea);
+            }
+            while(chiavi[2] >= 46341){
+                System.out.println("Sia p che q dovrebbero essere strettamente minori di 46341, ritenta con un p diverso");
+                linea = sc.nextLine();
+                chiavi[2] = Integer.parseInt(linea);
+            }
+            System.out.println("Inserisci il primo q");
+            linea = sc.nextLine();
+            chiavi[3] = Integer.parseInt(linea);
+            while(!RSA.isPrime(chiavi[3])){
+                System.out.println(chiavi[3] + " non è primo, ritenta");
+                linea = sc.nextLine();
+                chiavi[3] = Integer.parseInt(linea);
+            }
+            while(chiavi[3] >= 46341){
+                System.out.println("Sia p che q dovrebbero essere strettamente minori di 46341, ritenta con un q diverso");
+                linea = sc.nextLine();
+                chiavi[3] = Integer.parseInt(linea);
+            }
+        }
         while(!RSA.checkCoprimi(phi,chiavi[1]) || chiavi[1]>=phi){
-            System.out.println("Il valore scelto di s non è accettabile, riprovare");
+            System.out.println("Il valore scelto di s non è accettabile per il valore di phi, ovvero " + phi + ", riprova");
             linea = sc.nextLine();
             chiavi[1] = Integer.parseInt(linea);
         }
@@ -148,7 +197,7 @@ public class UI {
         String inputName = "textFiles/input" + user + "To" + receiver + ".txt";
         String outputName = "textFiles/output" + user + "To" + receiver + ".txt";
         fileReading.criptaFile(inputName, outputName, "textFiles/index.txt", chiavi);
-        System.out.println("Criptazione completata! Digitare 'S' per ottenere una stampa di controllo, altrimenti digitare qualunque altro input per terminare l'esecuzione.");
+        System.out.println("Criptazione completata! Digita 'S' per ottenere una stampa di controllo, altrimenti digita qualunque altro input per terminare l'esecuzione.");
         String prova = chiediInput(sc);
         if (prova.equals("S")) {
             stampaMessaggio(outputName, chiavi);
@@ -156,7 +205,7 @@ public class UI {
     }
 
     public static boolean altraRun(Scanner sc) throws IOException {
-        System.out.println("Se si desidera ripetere l'esecuzione del programma, anche in altre modalità, digitare 'R', altrimenti digitare qualsiasi altro input per terminare l'esecuzione");
+        System.out.println("Se desideri ripetere l'esecuzione del programma, anche in altre modalità, digita 'R', altrimenti digita qualsiasi altro input per terminare l'esecuzione");
         String repeat = chiediInput(sc);
         return repeat.equals("R");
     }
@@ -164,7 +213,7 @@ public class UI {
     public static void termineEsecuzione() {
         System.out.println("------------------TERMINE ESECUZIONE------------------");
         System.out.println("Grazie di aver usato il mio programma, buona giornata.");
-        System.out.println("In caso di problemi con il programma, visitare https://fil-cyan-tron.github.io/");
+        System.out.println("In caso di problemi con il programma, visita https://fil-cyan-tron.github.io/, troverai i miei contatti dove potrai dirmi che sono un incompetente!");
         System.exit(0);
     }
 }
