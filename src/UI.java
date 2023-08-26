@@ -42,7 +42,7 @@ public class UI {
     }
 
     public static void benvenutoD() {
-        System.out.println("Benvenut* nella modalità decriptazione, dovresti possedere un file dal nome 'outputMittente.txt' (da copiare in textFiles) pieno di numeri, ovvero criptato, e quattro chiavi numeriche etichettate r, s, p e q. Ti verrà chiesto di inserire le chiavi, e successivamente verrà stampato il messaggio decriptato nel terminale. In caso di errori di decriptazione, la colpa è da attribuirsi alle chiavi in quanto il programma è corretto per dimostrazione.");
+        System.out.println("Benvenut* nella modalità decriptazione, dovresti possedere un file dal nome 'outputMittenteToDestinatario.txt' dove tu sei il destinatario (da copiare in textFiles) pieno di numeri, ovvero criptato, e quattro chiavi numeriche etichettate r, s, p e q. Ti verrà chiesto di inserire le chiavi, e successivamente verrà stampato il messaggio decriptato nel terminale. In caso di errori di decriptazione, la colpa è da attribuirsi alle chiavi in quanto il programma è corretto per dimostrazione.");
         System.out.println();
     }
 
