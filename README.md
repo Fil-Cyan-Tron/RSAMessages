@@ -6,6 +6,10 @@ Salve a tutti! Questo è il mio primo programma pubblicato, Warlock, si tratta d
 
 Perchè il nome Warlock? Perchè mi piaceva l'idea di avere una naming convention basata su D&D o su delle battute sporche per i miei programmi, ma ho valutato che la prima opzione fosse meno debilitante nei confronti della mia futura impiegabilità nel mondo lavorativo.
 
+## Sneak peek per il futuro
+
+Sto lavorando ad una versione in Python e sembra davvero essere la strada verso un'implementazione grafica e molto più flessibile, aspettatevi aggiornamenti
+
 ## Tutorial
 
 In questo momento Warlock è pensato per essere eseguito in una IDE (renderlo un'applicazione eseguibile per ora è uno skill issue da parte mia), il seguente è un tutorial di come scaricarlo da qui ed eseguirlo con IntelliJ di JetBrains (community edition) per i pochi che si interessano di programmazione e non sono ancora abituati ad usare un'IDE.
